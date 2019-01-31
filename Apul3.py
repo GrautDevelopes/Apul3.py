@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
-# Apul3.py Alpha v0.3 by GrautDevelopes
+# Apul3.py Alpha v0.5 by GrautDevelopes
 from selenium.common.exceptions import TimeoutException, WebDriverException
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
@@ -263,9 +263,9 @@ try:
                 # Wait a bit to redirect and for items to load.
                 driver.implicitly_wait(args.waitonpage)
                 # (Enhancements for a certain type of popup.) If common popup
-                if "&r=&z=" in driver.current_url:
+                if ("&r=&z=") in driver.current_url:
                     driver.implicitly_wait(2)
-                if ".php?eps=" or ".php?q1=" in driver.current_url:
+                if (".php?eps=" or ".php?q1=") in driver.current_url:
                     # Source: https://stackoverflow.com/questions/26566799/how-to-wait-until-the-page-is-loaded-with-selenium-for-python
                     try:
                         saveprintline("[Apul3] Common enhancement for " +
@@ -277,7 +277,7 @@ try:
                         saveprintline(
                             "[Apul3] Error: Common enhancement for " +
                             re.sub('htt', 'hxx', driver.current_url) + " timed out. {}".format(exception))
-                if "?a=AZ" and "pagex=0" and "s1=" in driver.current_url:
+                if ("?a=AZ" and "pagex=0" and "s1=") in driver.current_url:
                     # Source: https://stackoverflow.com/questions/26566799/how-to-wait-until-the-page-is-loaded-with-selenium-for-python
                     try:
                         saveprintline("[Apul3] Common popup page enhancement for " +
